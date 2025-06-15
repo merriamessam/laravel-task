@@ -1,61 +1,115 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Student Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**A student management system with role-based access control**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+</div>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 📋 Overview
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+A Laravel application for managing student records with user authentication and role-based permissions. Users can register, verify their email, and manage student data based on their role.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### ✨ Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- 🔐 **User Registration & Login** - Laravel Breeze authentication
+- 📧 **Email Verification** - Confirm user email addresses
+- 👥 **Role-Based Access** - Admin and User roles
+- 📚 **Student Management** - Add student name and age
+- ✏️ **Admin Permissions** - Only admins can edit student records
+- 📄 **Student Reports** - Paginated student list
 
-## Laravel Sponsors
+### 🔑 Permissions
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+| Action | Admin | User |
+|--------|-------|------|
+| Add Students | ✅ | ✅ |
+| Edit Students | ✅ | ❌ |
+| Delete Students | ✅ | ❌ |
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🚀 Installation
 
-## Contributing
+### Prerequisites
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **XAMPP** (Apache, MySQL, PHP)
+- **Composer**
+- **Node.js**
 
-## Code of Conduct
+### Setup Steps
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/merriamessam/laravel-task.git
+   cd laravel-task
+   ```
 
-## Security Vulnerabilities
+2. **Install dependencies**
+   ```bash
+   composer install
+   npm install
+   npm run dev
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. **Environment setup**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-## License
+4. **XAMPP Configuration**
+   - Start Apache and MySQL in XAMPP
+   - Create database `student_management` in phpMyAdmin
+   - Configure `.env`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+5. **Database setup**
+   ```bash
+   php artisan migrate
+   ```
+
+6. **Start server**
+   ```bash
+   php artisan serve
+   ```
+
+Visit: `http://localhost:8000`
+
+---
+
+## 🧪 Testing Roles
+
+1. **Register a user** (default role: user)
+2. **Verify email** through verification link
+3. **Create admin account**:
+   - Go to database → `users` table
+   - Change `role` from `user` to `admin`
+4. **Test permissions**:
+   - Admin: Can edit/delete students
+   - User: Can only add students
+
+---
+
+## 📖 Usage
+
+### Registration Process
+1. Register new account
+2. Check email for verification link
+3. Click verification link
+4. Login to access system
+
+### Student Management
+- **All users**: Can add students (name, age)
+- **Admin only**: Can edit and delete student records
+- **Reports**: View paginated list of all students
+
+---
+
+## 🛠️ Built With
+
+- **Laravel** - PHP Framework
+- **Laravel Breeze** - Authentication
+- **MySQL** - Database
+- **XAMPP** - Local development environment
